@@ -11,11 +11,11 @@
 
 ## Checklist การติดตั้ง (ติ๊กโดยแก้ `[ ]` เป็น `[x]`)
 
-- [ ] Flutter SDK (`flutter --version` ขึ้นเลขเวอร์ชัน)
-- [ ] VS Code + extension Flutter
-- [ ] Git (`git --version` ขึ้นเลขเวอร์ชัน)
-- [ ] `flutter doctor` ขึ้น ✓ ที่ Flutter, Windows Version และ Chrome
-- [ ] Android Studio + Android SDK Command-line Tools (ช่วง B)
+- [x] Flutter SDK (`flutter --version` ขึ้นเลขเวอร์ชัน)
+- [x] VS Code + extension Flutter
+- [x] Git (`git --version` ขึ้นเลขเวอร์ชัน)
+- [x] `flutter doctor` ขึ้น ✓ ที่ Flutter, Windows Version และ Chrome
+- [x] Android Studio + Android SDK Command-line Tools (ช่วง B)
 
 ## สิ่งที่ต้องมีในโฟลเดอร์ L01 ตอนส่ง
 
@@ -31,7 +31,22 @@
 1. วางผลลัพธ์ทั้งหมดที่ได้จากการกด Run `week01.dart` ลงในกล่องด้านล่าง
 
 ```text
-(วางผลลัพธ์ตรงนี้)
+--- ข้อ 1 ---
+20.76
+25.88
+--- ข้อ 2 ---
+83.17
+95
+68
+--- ข้อ 3 ---
+[Mint, Ploy, Beam]
+--- ข้อ 4 ---
+0
+4
+--- ข้อ 5 (Stretch) ---
+[แล็ปท็อป, จอมอนิเตอร์, คีย์บอร์ด]
+
+Exited.
 ```
 
 2. ทดสอบเพิ่มเองอย่างน้อย 1 กรณีที่ข้อมูลผิดปกติ เช่น ส่ง list ว่าง `[]` ให้ `average` หรือส่ง `''` ให้ `nicknameLength` แล้วบันทึกผล

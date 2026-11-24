@@ -1,6 +1,6 @@
 // ============================================================
 // L01 — Dart พื้นฐาน (ITE-439 สัปดาห์ที่ 1)
-// ชื่อ-สกุล: ______________________  รหัสนักศึกษา: ____________
+// ชื่อ-สกุล: นายทรงพล อนันต์เนติกุล  รหัสนักศึกษา: 2413130028
 // ============================================================
 //
 // วิธีทำ
@@ -33,7 +33,9 @@ void main() {
   print(nicknameLength('Mint')); // ควรได้ 4
 
   print('--- ข้อ 5 (Stretch) ---');
-  print(topThreeExpensive(products)); // ควรได้ [แล็ปท็อป, จอมอนิเตอร์, คีย์บอร์ด]
+  print(
+    topThreeExpensive(products),
+  ); // ควรได้ [แล็ปท็อป, จอมอนิเตอร์, คีย์บอร์ด]
 }
 
 // ------------------------------------------------------------
@@ -43,10 +45,8 @@ void main() {
 // ให้คืนค่าเป็น String ที่ตัดทศนิยมเหลือ 2 ตำแหน่ง
 // ใบ้: ตัวเลขทศนิยมใช้ double, ตัดทศนิยมใช้ .toStringAsFixed(2)
 // ------------------------------------------------------------
-String bmi(double weight, double height) {
-  // TODO: เขียนโค้ดตรงนี้
-  return '';
-}
+String bmi(double weight, double height) =>
+    (weight / (height * height)).toStringAsFixed(2);
 
 // ------------------------------------------------------------
 // ข้อ 2 — สถิติพื้นฐานจาก List<int>
@@ -58,20 +58,13 @@ String bmi(double weight, double height) {
 // ใบ้: ไม่ต้องเขียน for loop เอง ลองดู .reduce() หรือ .fold()
 //      เช่น list.reduce((a, b) => a > b ? a : b)
 // ------------------------------------------------------------
-String average(List<int> numbers) {
-  // TODO
-  return '';
-}
+String average(List<int> numbers) =>
+    (numbers.reduce((a, b) => a + b).toDouble() / numbers.length)
+        .toStringAsFixed(2);
 
-int highest(List<int> numbers) {
-  // TODO
-  return 0;
-}
+int highest(List<int> numbers) => numbers.reduce((a, b) => a > b ? a : b);
 
-int lowest(List<int> numbers) {
-  // TODO
-  return 0;
-}
+int lowest(List<int> numbers) => numbers.reduce((a, b) => a < b ? a : b);
 
 // ------------------------------------------------------------
 // ข้อ 3 — กรองข้อมูลจาก List<Map>
@@ -90,10 +83,10 @@ const List<Map<String, dynamic>> students = [
   {'name': 'Nut', 'score': 79},
 ];
 
-List<String> topStudentNames(List<Map<String, dynamic>> list) {
-  // TODO
-  return [];
-}
+List<String> topStudentNames(List<Map<String, dynamic>> list) => list
+    .where((s) => (s['score'] as int) >= 80)
+    .map((s) => s['name'] as String)
+    .toList();
 
 // ------------------------------------------------------------
 // ข้อ 4 — Null Safety
@@ -107,10 +100,7 @@ List<String> topStudentNames(List<Map<String, dynamic>> list) {
 // คำถามที่อาจารย์จะถามตอน Review:
 //   ถ้าเขียน nickname!.length แล้ว nickname เป็น null จริงๆ จะเกิดอะไรขึ้น
 // ------------------------------------------------------------
-int nicknameLength(String? nickname) {
-  // TODO
-  return 0;
-}
+int nicknameLength(String? nickname) => nickname?.length ?? 0;
 
 // ------------------------------------------------------------
 // ข้อ 5 (Stretch) — เรียงลำดับ
@@ -130,6 +120,7 @@ const List<Map<String, dynamic>> products = [
 ];
 
 List<String> topThreeExpensive(List<Map<String, dynamic>> list) {
-  // TODO
-  return [];
+  final sortedList = [...list];
+  sortedList.sort((a, b) => (b['price'] as int).compareTo(a['price'] as int));
+  return sortedList.take(3).map((p) => p['name'] as String).toList();
 }
