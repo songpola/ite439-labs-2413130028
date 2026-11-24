@@ -4,6 +4,10 @@ build/
 .flutter-plugins
 .flutter-plugins-dependencies
 
+# Nix / direnv
+.direnv/
+result
+
 # IDE
 .idea/
 .vscode/
